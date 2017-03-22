@@ -8,4 +8,5 @@ csv_data.each{|r| puts r.at(1).split('/')[0]}
 this script is used on a csv file with the rows with below format
 Environment, 11.11.11.1.88, hostname, fqdn, 
 The reason behing building the above script is to seperate the Ip address of thousands of servers and import it into a text file.
+ Execute ruby script like this ./code1.rb >> file.txt
 Hope it helps someone.
