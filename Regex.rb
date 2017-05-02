@@ -18,4 +18,6 @@ output 0
 #Don't forget to use backward slash for escape sequences 
 "https://" =~ /https:\/\//
 
-#
+#difference between =~ and .match
+#=~ is used to give the index of the matched regex
+# .match outputs the result(not index)
