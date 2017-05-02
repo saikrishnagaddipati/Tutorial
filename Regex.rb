@@ -15,5 +15,7 @@ output 0
 "" =~ /^$/
 output 0
 
+#Don't forget to use backward slash for escape sequences 
+"https://" =~ /https:\/\//
 
-
+#
