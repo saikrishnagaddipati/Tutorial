@@ -24,8 +24,11 @@ output 0
 
 #checking if the value exists within the range and also at what index it exists
 "aa 123" =~ /[0-9]/
+output 3
 
-
+#checking if alphbet exists and also checking the index number
+"11 ice" =~ /[a-z]/
+3
 
 
 
