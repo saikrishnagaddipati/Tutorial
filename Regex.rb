@@ -21,3 +21,29 @@ output 0
 #difference between =~ and .match
 #=~ is used to give the index of the matched regex
 # .match outputs the result(not index)
+
+#checking if the value exists within the range and also at what index it exists
+"aa 123" =~ /[0-9]/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
