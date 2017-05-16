@@ -30,7 +30,34 @@ output 3
 "11 ice" =~ /[a-z]/
 3
 
+facts2csv.rb
+require 'json'
+require 'csv'
 
+# You can filter the facts returned based on a query or just get them all. v3 and v4 API examples.
+query = '["=", "certname", "master.inf.puppetlabs.demo"]'
+command_v3 = "/usr/bin/curl -G http://localhost:8080/v3/facts --data-urlencode \'query=#{query}\'"
+command_v4 = "/usr/bin/curl -G http://localhost:8080/pdb/query/v4/facts --data-urlencode \'query=#{query}\'"
+command_all_v3 = "/usr/bin/curl http://localhost:8080/v3/facts"
+command_all_v4 = "/usr/bin/curl http://localhost:8080/pdb/query/v4/facts"
+# Here's where I select which command to actually use.
+command = command_all_v4
+
+# execute the curl command we've chosen to query PuppetDB. Returns data as JSON.
+json = %x(#{command})
+
+# convert the JSON returned from PuppetDB into CSV. Magic!
+csv_string = CSV.generate do |csv|
+  JSON.parse(json).each do |hash|
+    csv << hash.values
+  end
+end
+
+puts csv_string
+Comment on gist
+ 
+Comment
+ Desktop version
 
 
 
